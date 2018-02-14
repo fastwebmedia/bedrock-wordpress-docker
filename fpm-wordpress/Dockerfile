@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 ENV DB_NAME=wordpress \
 	DB_USER=root \
@@ -50,7 +50,7 @@ RUN { \
 RUN chown -R www-data:www-data . && chmod g+s .
 
 # install bedrock & set permissions
-RUN su-exec www-data composer create-project roots/bedrock . && chmod -R 755 .
+RUN su-exec www-data composer install && chmod -R 755 .
 
 # init script and CMD
 COPY init.sh /opt/
