@@ -40,7 +40,4 @@ services:
       - "80:80"
     environment:
       # uncomment below to remove installation password
-      # ALLOW_INSTALL: "yes"
-volumes:
-  wordpress-db:
-    driver: local
+      ALLOW_INSTALL: "yes"

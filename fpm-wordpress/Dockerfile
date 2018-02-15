@@ -14,7 +14,6 @@ RUN apk --update --no-cache add less bash su-exec mysql-client freetype-dev libj
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     php -r "unlink('composer-setup.php');"
 
@@ -48,9 +47,7 @@ RUN { \
 
 # set folder permissions
 RUN chown -R www-data:www-data . && chmod g+s .
-
-# install bedrock & set permissions
-RUN su-exec www-data composer install && chmod -R 755 .
+RUN su-exec www-data chmod -R 755 .
 
 # init script and CMD
 COPY init.sh /opt/
