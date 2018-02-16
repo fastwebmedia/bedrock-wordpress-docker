@@ -11,4 +11,4 @@ while ! nc -z ${DB_HOST} ${DB_PORT}; do
 	sleep 2
 done
 
-composer install --no-interaction --no-scripts --no-autoloader
+su-exec www-data composer install --no-interaction
