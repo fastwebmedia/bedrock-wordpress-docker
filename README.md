@@ -32,7 +32,6 @@ It makes all urls that end in `install.php` as well as the `readme.html` require
 
 You can disable the password by providing an `ALLOW_INSTALL` environment variable with a string value of `yes`. You can see an example of this in the `docker-compose.yml` file.
 
-
 ## Docker Commands
 
 Below are the docker commands required to build and publish to DockerHub.
