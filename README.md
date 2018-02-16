@@ -31,3 +31,19 @@ docker exec fpm wp core version
 It makes all urls that end in `install.php` as well as the `readme.html` require a password. This is done for security reasons. This does not currently create a password. All core, plugin and theme installations must be done by making a new base image or through a wp-cli command.
 
 You can disable the password by providing an `ALLOW_INSTALL` environment variable with a string value of `yes`. You can see an example of this in the `docker-compose.yml` file.
+
+
+## Docker Commands
+
+Below are the docker commands required to build and publish to DockerHub.
+
+### Build Image
+
+```
+cd nginx-wordpress
+docker build -t fastwebmedia/nginx-bedrock-wordpress .
+```
+
+### Push Image to Docker Hub
+
+`docker push fastwebmedia/nginx-bedrock-wordpress:latest`
