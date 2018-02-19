@@ -3,7 +3,7 @@
 * Wordpress install based on [Bedrock](https://github.com/roots/bedrock).
 * [wp-cli](https://wp-cli.org) support
 * Utilizes [custom nginx config](https://github.com/perusio/wordpress-nginx).
-* php 7.2, mariadb 10.3 and nginx 1.12
+* php 7.1, mariadb 10.3 and nginx 1.12
 * mysql s3 backup
 
 ## docker-compose.yml
