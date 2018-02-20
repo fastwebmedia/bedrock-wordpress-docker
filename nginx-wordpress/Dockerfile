@@ -12,6 +12,9 @@ RUN mv /etc/nginx /etc/nginx-og && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
     mkdir -p /etc/nginx/logs/ /etc/nginx/sites-enabled/ && touch /etc/nginx/logs/error.log
 COPY default.conf /etc/nginx/sites-available/default.conf
+
+sed -i "s|listen 85|listen ${NGINX_PORT}|g" /etc/nginx/sites-available/default.conf
+
 RUN ln -sf /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 # init script and CMD
