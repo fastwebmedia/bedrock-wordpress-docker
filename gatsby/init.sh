@@ -14,9 +14,12 @@ fi
 # Decide what to do
 if  [ "$APP_ENV" == "development" ]
 then
+  echo "Removing Cache"
+  rm -rf .cache
+  
 	echo "Running gatsby develop"
   rm -rf public
-  gatsby develop
+  gatsby develop --host 0.0.0.0
 
 elif  [ "$APP_ENV" == "staging" ]
 then

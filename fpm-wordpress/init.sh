@@ -11,4 +11,5 @@ while ! nc -z ${DB_HOST} ${DB_PORT}; do
 	sleep 2
 done
 
-su-exec www-data composer install --no-interaction --prefer-dist
+cd /var/www/html
+composer install --no-interaction --prefer-dist
